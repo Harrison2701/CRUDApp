@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+
+Dogs App
+
+  <form action="/api/items" method="POST">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="breed" name="breed">
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
+
+<ul class="dogs">
+  <table class = "dogs" border = "1px">
+    <tr>
+      <th>Name</th>
+      <th>Breed</th>
+    </tr>
+  <% for(var i = 0; i < dogs.length; i++) {%>
+  <tr>
+      <td><%= dogs[i].name%>
+      </td>
+      <td><%= dogs[i].breed %></td>
+      <td><form action="/api/delete" method="post" >
+      <input type="hidden" name="id" value="<%=dogs[i].id%>">
+      <input type ="submit" value="delete" method="DELETE">
+    </form>
+    </td>
+  </tr>
+  <% }%>
+</ul>
