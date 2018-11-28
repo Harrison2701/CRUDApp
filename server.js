@@ -28,7 +28,7 @@ router.post('/items', function(req, res) {
     if(err) {console.log(err)}
     var id = result.length;
     db.collection('dogs').insertOne({name:name, breed:breed, id:id})
-    res.redirect('/api'); 
+    res.redirect('/api');
   })
 
    //renders index page in browser
@@ -51,7 +51,5 @@ MongoClient.connect('mongodb://Harrison27:Harrison1266502@ds155203.mlab.com:5520
     console.log("Connected successfully to server");
 
     db = client.db('dogsapp');
-    app.listen(3000, () => {
-        console.log('meow')
-    })
+    port = process.env.PORT || 80
 })
